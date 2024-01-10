@@ -19,7 +19,7 @@ function Register() {
 
   });
   const toastOptions={
-    postion: "bottom-right",
+    position: "bottom-right",
         autoClose:8000,
         pauseOnHover:true,
         draggable:true,

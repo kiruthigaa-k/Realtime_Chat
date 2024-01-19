@@ -23,9 +23,10 @@ export default function SetAvatar() {
             theme:"dark",
       };
 
-      useEffect(async()=>{
-        if(localStorage.getItem("chat-app-user"));
+      useEffect(()=>{
+        if(!localStorage.getItem("chat-app-user"))
         navigate("/login");
+        
       }, []);
       const setProfilePicture = async ()=>{
         if(selectedAvatar === undefined)

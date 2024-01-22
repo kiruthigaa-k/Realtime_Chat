@@ -2,14 +2,13 @@ import React, { useState, useEffect }  from 'react'
 import styled from "styled-components";
 import Robot from "../assets/robot.gif";
 
-export default function Welcome(){
-    const [userName, setUserName] = useState("");
+export default function Welcome({currentUser}){
 
     return (
         <Container>
             <img src={Robot} alt="Robot"/>
             <h1>
-            Welcome, <span>{userName}!</span>
+            Welcome, <span>{currentUser.username}!</span>
             </h1>
             <h3>Please select a chat to Start Messaging</h3>
         </Container>

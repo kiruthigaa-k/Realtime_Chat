@@ -1,11 +1,20 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from 'styled-components';
 import Logout from './Logout';
+import { sendMessageRoute } from '../utils/APIRoutes';
 import ChatInput from './ChatInput';
 import Messages from './Messages';
-export default function ChatContainer({currentChat}) {
+import axios from "axios";
+
+export default function ChatContainer({currentChat,currentUser}) {
+
   const handleSendMsg = async(msg) => {
-    alert(msg);
+  
+   await axios.post(sendMessageRoute,{
+    from:currentUser._id,
+    to:currentChat._id,
+    message:msg,
+   })
   };
 
   return (
@@ -29,7 +38,7 @@ export default function ChatContainer({currentChat}) {
         </div>
         <Logout/>
     </div>
-   <Messages/>
+     <div className="chat-messages"></div>
     <ChatInput handleSendMsg={handleSendMsg}/>
 
   </Container>
